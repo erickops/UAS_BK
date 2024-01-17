@@ -81,7 +81,7 @@ if home==False and about==False or home==True and about==False:
                     if model_1:
                         prediksi = metode.knn(data)
                         # cek prediksi
-                        with st.spinner("Tunggu Sebentar Masih Proses..."):
+                        with st.spinner("Dalam Proses..."):
                             if prediksi[-1] == 0:
                                 time.sleep(1)
                                 st.success("Hasil Prediksi Metode KNN: "+nama+" Tidak Ada Penyakit Jantung")
@@ -91,7 +91,7 @@ if home==False and about==False or home==True and about==False:
                     if model_2:
                         prediksi = metode.bagging(data)
                         # cek prediksi
-                        with st.spinner("Tunggu Sebentar Masih Proses..."):
+                        with st.spinner("Dalam Proses..."):
                             if prediksi[-1] == 0:
                                 time.sleep(1)
                                 st.success("Hasil Prediksi Metode Bagging: "+nama+" Tidak Ada Penyakit Jantung")
@@ -101,13 +101,13 @@ if home==False and about==False or home==True and about==False:
                     if model_3:
                         prediksi = metode.randomforest(data)
                         # cek prediksi
-                        with st.spinner("Tunggu Sebentar Masih Proses..."):
+                        with st.spinner("Dalam Proses..."):
                             if prediksi[-1] == 0:
                                 time.sleep(1)
-                                st.success("Hasil Prediksi Metode Random Forest: "+nama+" Tidak Ada Penyakit Jantung")
+                                st.success("Hasil Metode Random Forest: "+nama+" Tidak Ada Penyakit Jantung")
                             else:
                                 time.sleep(1)
-                                st.warning("Hasil Prediksi Metode Random Forest: "+nama+" Ada Penyakit Jantung")
+                                st.warning("Hasil Metode Random Forest: "+nama+" Ada Penyakit Jantung")
                 else:
                     # cek jenis kelamin
                     #1 = laki-laki
@@ -122,7 +122,7 @@ if home==False and about==False or home==True and about==False:
                     if model_1:
                         prediksi = metode.knn_no_norm(data)
                         # cek prediksi
-                        with st.spinner("Tunggu Sebentar Masih Proses..."):
+                        with st.spinner("Dalam Proses..."):
                             if prediksi[-1] == 0:
                                 time.sleep(1)
                                 st.success("Hasil Prediksi Metode KNN: "+nama+" Tidak Ada Penyakit Jantung")
