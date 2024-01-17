@@ -51,9 +51,9 @@ if home==False and about==False or home==True and about==False:
 
     col1, col2 = st.columns(2)
     with col1:
-        nama = st.text_input("Masukkan Nama",placeholder='Nama')
+        nama = st.text_input("Silakan Inputkan Nama",placeholder='Nama')
     with col2:
-        umur = st.number_input("Masukkan Umur",max_value=100)
+        umur = st.number_input("Inputkan Umur",max_value=100)
     jk = st.selectbox("Jenis Kelamin",('Laki-laki','Perempuan'))
     col3,col4 = st.columns(2)
     with col3:
@@ -132,7 +132,7 @@ if home==False and about==False or home==True and about==False:
                     if model_2:
                         prediksi = metode.bagging_no_norm(data)
                         # cek prediksi
-                        with st.spinner("Tunggu Sebentar Masih Proses..."):
+                        with st.spinner("Dalam Proses"):
                             if prediksi[-1] == 0:
                                 time.sleep(1)
                                 st.success("Hasil Prediksi Metode Bagging: "+nama+" Tidak Ada Penyakit Jantung")
@@ -142,7 +142,7 @@ if home==False and about==False or home==True and about==False:
                     if model_3:
                         prediksi = metode.randomforest_no_norm(data)
                         # cek prediksi
-                        with st.spinner("Tunggu Sebentar Masih Proses..."):
+                        with st.spinner("Dalam Proses..."):
                             if prediksi[-1] == 0:
                                 time.sleep(1)
                                 st.success("Hasil Prediksi Metode Random Forest: "+nama+" Tidak Ada Penyakit Jantung")
@@ -150,9 +150,9 @@ if home==False and about==False or home==True and about==False:
                                 time.sleep(1)
                                 st.warning("Hasil Prediksi Metode Random Forest: "+nama+" Ada Penyakit Jantung")
             else:
-                st.error("Pilih Salah Satu Metode")
+                st.error("Metode")
         else:
-            st.error("Harap Diisi Semua Kolom")
+            st.error("Semua kolom wajib terisi")
 
 # about page
 if about==True and home==False:
