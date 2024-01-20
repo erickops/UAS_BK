@@ -7,9 +7,10 @@ import time
 # pige title
 st.set_page_config(
     page_title="Prediksi Penyakit Jantung",
+    page_icon="https://e7.pngegg.com/pngimages/594/747/png-clipart-heart-heart-cartoon-heart.png",
 )
 
-    # 0 = belum ditemukan adanya indikasi
+    # 0 = tidak ada penyakit jantung
     # 1 = ada penyakit jantung
 
 # hide menu
@@ -26,14 +27,15 @@ header {visibility: hidden;}
 """
 st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">', unsafe_allow_html=True)
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-st.markdown(' <div style="position: fixed; top: 0; left: 0; z-index: 9999; width: 100%; background: rgb(14, 17, 23); ; text-align: center;"><a href="https://github.com/erickops/UAS_BK" target="_blank"><button style="border-radius: 12px;position: relative; top:50%; margin:10px;"><i class="fa fa-github"></i>
 st.markdown(' <div style="position: fixed; top: 0; left: 0; z-index: 9999; width: 100%; background: rgb(14, 17, 23); ; text-align: center;"><a href="https://github.com/erickops/UAS_BK/" target="_blank"><button style="border-radius: 12px;position: relative; top:50%; margin:10px;"><i class="fa fa-github"></i> Source Code</button></a><a href="https://github.com/erickops/" target="_blank"><button  style="border-radius: 12px;position: relative; top:50%;"><i style="color: orange" class="fa fa-github"></i> Github</button></a></div>', unsafe_allow_html=True)
+
 
 
 # insialisasi web
 st.markdown("<p style='text-align: center; color: white; margin:0 ; padding:0;'>MENU</p>", unsafe_allow_html=True)
 kolom = st.columns((2.2, 0.48, 2.7))
-                                                                                                                                                             
+home = kolom[1].button('🧑‍🚀')
+about = kolom[2].button('About')
 
 # home page
 if home==False and about==False or home==True and about==False:
@@ -104,10 +106,10 @@ if home==False and about==False or home==True and about==False:
                         with st.spinner("Dalam Proses..."):
                             if prediksi[-1] == 0:
                                 time.sleep(1)
-                                st.success("Hasil Metode Random Forest: "+nama+" Tidak Ada Penyakit Jantung")
+                                st.success("Hasil Prediksi Metode Random Forest: "+nama+" Tidak Ada Penyakit Jantung")
                             else:
                                 time.sleep(1)
-                                st.warning("Hasil Metode Random Forest: "+nama+" Ada Penyakit Jantung")
+                                st.warning("Hasil Prediksi Metode Random Forest: "+nama+" Ada Penyakit Jantung")
                 else:
                     # cek jenis kelamin
                     #1 = laki-laki
@@ -132,7 +134,7 @@ if home==False and about==False or home==True and about==False:
                     if model_2:
                         prediksi = metode.bagging_no_norm(data)
                         # cek prediksi
-                        with st.spinner("Dalam Proses"):
+                        with st.spinner("Dalam Proses..."):
                             if prediksi[-1] == 0:
                                 time.sleep(1)
                                 st.success("Hasil Prediksi Metode Bagging: "+nama+" Tidak Ada Penyakit Jantung")
@@ -150,6 +152,6 @@ if home==False and about==False or home==True and about==False:
                                 time.sleep(1)
                                 st.warning("Hasil Prediksi Metode Random Forest: "+nama+" Ada Penyakit Jantung")
             else:
-                st.error("Metode")
+                st.error("Pilih Salah Satu Metode")
         else:
-            st.error("Semua kolom wajib terisi")
+            st.error("Harap Diisi Semua Kolom")
